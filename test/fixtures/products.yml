@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  lister: MyString
+  description: MyText
+  bid: 1
+  bidder: MyText
+  deadline: 2016-08-27 14:36:27
+
+two:
+  title: MyString
+  lister: MyString
+  description: MyText
+  bid: 1
+  bidder: MyText
+  deadline: 2016-08-27 14:36:27
