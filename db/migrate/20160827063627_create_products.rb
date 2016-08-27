@@ -3,9 +3,10 @@ class CreateProducts < ActiveRecord::Migration
     create_table :products do |t|
       t.string :title
       t.string :lister
+      t.integer :user_id
       t.text :description
-      t.integer :bid
-      t.text :bidder
+      t.integer :starting_bid
+      # t.text :bidder
       t.datetime :deadline
 
       t.timestamps null: false

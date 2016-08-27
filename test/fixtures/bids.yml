@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amt: 1
+  bidder: MyText
+  product_id: 
+
+two:
+  amt: 1
+  bidder: MyText
+  product_id: 

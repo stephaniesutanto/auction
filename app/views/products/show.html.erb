@@ -7,7 +7,7 @@
 
 <p>
   <strong>Lister:</strong>
-  <%= @product.lister %>
+  <%= @product.user.name %>
 </p>
 
 <p>
@@ -16,19 +16,32 @@
 </p>
 
 <p>
-  <strong>Bid:</strong>
-  <%= @product.bid %>
+  <strong>Starting Bid:</strong>
+  <%= @product.starting_bid %>
+</p>
+
+<p>
+  <strong>Highest Bid:</strong>
+  <%= @product.bid.try(:amt) %>
 </p>
 
 <p>
   <strong>Bidder:</strong>
-  <%= @product.bidder %>
+  <%= @product.bid.try(:user).try(:name) %>
 </p>
 
 <p>
   <strong>Deadline:</strong>
   <%= @product.deadline %>
 </p>
+
+  <%= form_for [@product, @bid] do |f| %>
+  <p>
+    <strong>New bid: </strong>
+    <%= f.number_field :amt %>
+    <%= f.submit %>
+  </p>
+  <% end %>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
