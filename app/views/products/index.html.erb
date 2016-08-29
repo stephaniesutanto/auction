@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1>Hello, <%= current_user.name %></h1>
-<h1>Listing Products</h1>
+<h1>All auction items</h1>
 
 <%= link_to 'Add New Auction Item', new_product_path, :class => "btn btn-primary" %>
 <p></p>
@@ -41,6 +41,11 @@
   </tbody>
 </table>
 
+<br>
+<p><strong>Instructions:</strong>
+<li>You have to bid more than the current amount</li>
+<li>You can list as many items to put up for auction</li>
+<li>Any derogatory listings will be taken down immediately</li>
 <br>
 
 <% if user_signed_in? %>

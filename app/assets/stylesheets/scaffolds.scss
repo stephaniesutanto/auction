@@ -6,6 +6,22 @@ body {
   line-height: 18px;
 }
 
+.login-intro {
+  padding-left: 100px;
+  padding-right: 100px;
+  text-align: center;
+}
+
+.login-form {
+  text-align: center;
+}
+
+.btn-primary {
+  &:visited {
+  color: #fff;
+  }
+}
+
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
