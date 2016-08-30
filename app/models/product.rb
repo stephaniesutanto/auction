@@ -4,5 +4,4 @@ class Product < ActiveRecord::Base
 	validates :title, :presence => true
 	validates :description, :presence => true
 	validates :starting_bid, :presence => true
-	has_many :bids
 end

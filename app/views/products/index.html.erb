@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
-<h1>Hello, <%= current_user.name %></h1>
-<h1>All auction items</h1>
+<h2>Hello, <%= current_user.name %></h2>
+<h2>Here are all the auction items available</h2>
 
+<p></p>
 <%= link_to 'Add New Auction Item', new_product_path, :class => "btn btn-primary" %>
 <p></p>
+
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
@@ -14,7 +16,7 @@
       <th>Current Highest Bid</th>
       <th>Bidder</th>
       <th>Deadline</th>
-      <th colspan="3"></th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
@@ -40,10 +42,10 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
 <p><strong>Instructions:</strong>
 <li>You have to bid more than the current amount</li>
+<li>You may only bid on items listed by others, and not your own</li>
 <li>You can list as many items to put up for auction</li>
 <li>Any derogatory listings will be taken down immediately</li>
 <br>

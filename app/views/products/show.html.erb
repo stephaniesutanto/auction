@@ -35,12 +35,19 @@
   <%= @product.deadline %>
 </p>
 
-  <%= form_for [@product, @bid] do |f| %>
+<% if @product.user.name != current_user.name %>
+    <%= form_for [@product, @bid] do |f| %>
   <p>
     <strong>New bid: </strong>
     <%= f.number_field :amt %>
-    <%= f.submit %>
+    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+    Place Bid
+    <% end %>
   </p>
-  <% end %>
+  <% end %> 
+<% else %>                 
+<% end %>
+
+
 
 <%= link_to 'Back', products_path %>

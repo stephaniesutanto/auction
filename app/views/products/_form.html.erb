@@ -27,7 +27,8 @@
     <%= f.label :deadline %><br>
     <%= f.datetime_select :deadline %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+    Submit
+    <% end %>
+<p></p>
 <% end %>
