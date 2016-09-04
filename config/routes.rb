@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'auction/about' => "auction#about"
+
   root to: 'products#index'
 
   resources :products do
