@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   resources :products do
+    get "my_products", on: :collection
     resources :bids, only: :create
   end
+
   devise_for :users
 end
 

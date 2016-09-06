@@ -4,8 +4,13 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    if params[:user_id].present?
+      @products = User.find(params[:user_id]).products
+    else   
+      @products = Product.all
+    end
   end
+
 
   # GET /products/1
   # GET /products/1.json
@@ -22,9 +27,11 @@ class ProductsController < ApplicationController
   def edit
   end
 
-  def aboutus
+  def my_products
+    #@products = current_us
+    @products = current_user.products
   end
-  
+
 
   # POST /products
   # POST /products.json
