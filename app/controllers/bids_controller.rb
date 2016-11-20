@@ -4,7 +4,7 @@ class BidsController < ApplicationController
   def create
     current_highest_bid = @product.bid.try(:amt)
 
-    if params[:bid][:amt].to_i > (current_highest_bid || @product.starting_bid)
+    if params[:bid][:amt].to_i >= (current_highest_bid || @product.starting_bid)
       bid = @product.build_bid(bid_params)
   		bid.user = current_user
       bid.save

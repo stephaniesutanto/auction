@@ -30,11 +30,6 @@
   <%= @product.bid.try(:user).try(:name) %>
 </p>
 
-<p>
-  <strong>Deadline:</strong>
-  <%= @product.deadline %>
-</p>
-
 <% if @product.user.name != current_user.name %>
     <%= form_for [@product, @bid] do |f| %>
   <p>
@@ -44,8 +39,8 @@
     Place Bid
     <% end %>
   </p>
-  <% end %> 
-<% else %>                 
+  <% end %>
+<% else %>
 <% end %>
 
 
