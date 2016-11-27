@@ -1,8 +1,8 @@
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-family: Helvetica Neue, arial, helvetica, sans-serif;
+  font-size: 12px;
   line-height: 18px;
 }
 
@@ -27,8 +27,8 @@ body {
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-family: Helvetica Neue, arial, helvetica, sans-serif;
+  font-size: 12px;
   line-height: 18px;
 }
 
@@ -66,6 +66,30 @@ div {
   background-color: red;
   display: table;
 }
+
+.thumbnail {
+  height: 350px;
+}
+.preview-text {
+  overflow: hidden;
+  height: 149px;
+  margin-bottom: 21px;
+}
+.column-left {
+  float: left;
+  width: 33%;
+}
+
+.column-center {
+  float: inline-block;
+  width: 33%;
+}
+
+.column-right {
+  float: right;
+  width: 33%;
+}
+
 
 #error_explanation {
   width: 450px;

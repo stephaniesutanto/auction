@@ -10,7 +10,7 @@
 
 <h3>Total raised: <%= number_to_currency @products.inject(0){|sum, product| sum + (product.bid.try(:amt) || 0) }  %></h3>
 
-<a href="#" class="btn btn-info" data-toggle="modal" data-target="#myModal"> 
+<a href="#" class="btn btn-info" data-toggle="modal" data-target="#myModal">
   <h3>Instructions</h3>
 </a>
 
@@ -18,10 +18,60 @@
 <%= link_to 'Add New Auction Item', new_product_path, :class => "btn btn-primary" %>
 <p></p>
 
-
 <%#= link_to 'Show my products', products_path(user_id: current_user.id) %>
+<% @products.each do |product| %>
+<div class="container">
+      <div class="row row-eq-height">
+        <div class="col-sm-4 col">
+          <!-- <div class="col-xs-18 col-sm-6 col-md-3"> -->
+          <div class="thumbnail">
+            <!-- <img src="http://placehold.it/500x250/EEE"> -->
+              <div class="caption">
+                <h4><%= product.title %></h4>
+                <p style="color:#757575"><%= product.user.name %></p>
+                <div class="preview-text">
+                <p><%= product.description %></p>
+              </div>
+                  <div class="col-sm-4 col">
+                    <p><strong><%= number_to_currency product.starting_bid %></strong></p>
+                    <p>Start bid</p>
+                  </div>
+                  <div class="col-sm-4 col">
+                    <p>
+                      <% if number_to_currency product.bid.try(:amt).nil? %>
+                      None
+                      <% else %>
+                      <strong><%= number_to_currency product.bid.try(:amt) %></strong></p>
+                      <% end %>
+                    <p>Highest bid</p>
+                  </div>
+                  <div class="col-sm-4 col">
+                    <p>
+                      <% if product.bid.try(:user).try(:name).nil? %>
+                      None
+                      <% else %>
+                      <strong><%= product.bid.try(:user).try(:name) %></strong></p>
+                      <% end %>
+                    <p>Highest bidder</p>
+                  </div>
 
+                  <div class="col-sm-6 col">
+                      <% if product.user.name == current_user.name %>
+                      <%= link_to 'Edit', edit_product_path(product) %>
+                      <%= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <% else %>
+                      <%= link_to 'Bid', product, :class => "btn btn-primary btn-xs" %>
+                      <% end %>
 
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+  </div><!--/row-->
+</div><!--/container -->
+
+<!--
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
@@ -55,14 +105,14 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->
 
 <br>
 
 <% if user_signed_in? %>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 <% else %>
-  <%= link_to('Login', new_user_session_path)  %>  
+  <%= link_to('Login', new_user_session_path)  %>
 <% end %>
 
 <!-- Modal -->
@@ -88,6 +138,3 @@
     </div>
   </div>
 </div>
-
-
-
