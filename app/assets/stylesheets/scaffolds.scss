@@ -4,6 +4,7 @@ body {
   font-family: Helvetica Neue, arial, helvetica, sans-serif;
   font-size: 12px;
   line-height: 18px;
+  min-height: 100%;
 }
 
 .login-intro {
@@ -46,10 +47,12 @@ a {
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #666;
+    text-decoration: none;
+    background-color: transparent;
   }
 }
+
 
 div {
   &.field, &.actions {
@@ -67,9 +70,83 @@ div {
   display: table;
 }
 
-.thumbnail {
-  height: 350px;
+.no-padding {
+  margin-right: 0px;
+  [class*="col-"] {
+    padding-left: 0 !important;
+  }
 }
+
+.tabs-style {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.main-title{
+  font-family: Helvetica Neue;
+  font-size: 32px;
+  font-weight: 200;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.banner {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.instructions {
+  background-color: transparent;
+  border: 3px solid #666;
+}
+
+.instructions:visited {
+  background-color: transparent;
+  border: 3px solid #666;
+}
+
+.add-item {
+  background-color: #ff6f69;
+  border: 3px solid #ff6f69;
+  color: white;
+}
+
+.add-item:visited {
+    background-color: #ff6f69;
+    border: 3px solid #ff6f69;
+    color: white;
+    cursor: pointer;
+}
+
+.add-item:hover {
+    background-color: #e5635e;
+    border: 3px solid #e5635e;
+    color: white;
+    cursor: pointer;
+}
+
+.add-item:active {
+    background-color: #e5635e;
+    border: 3px solid #e5635e;
+    color: white;
+    cursor: pointer;
+}
+
+.c-button {
+  display: inline-block;
+  border-radius: 7px;
+  font-size: 17px;
+  padding: 12px 31px;
+  margin: 9px;
+}
+
+.thumbnail {
+  height: 370px;
+}
+.explore {
+  font-size: 22px;
+}
+
 .preview-text {
   overflow: hidden;
   height: 149px;
@@ -114,4 +191,9 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+.stats {
+  font-size: 20px;
+  font-weight: 500;
 }

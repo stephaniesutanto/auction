@@ -2,6 +2,12 @@
   <li role="presentation"><a href="/products/">Home</a></li>
   <li role="presentation"><a href="/auction/about">About</a></li>
   <li role="presentation"><a href="/products/my_products">My Listings</a></li>
+  <li role="presentation" style="float:right;">
+    <% if user_signed_in? %>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+    <% else %>
+      <%= link_to('Login', new_user_session_path)  %>
+    <% end %></li>
 </ul>
 <p id="notice"><%= notice %></p>
 <div class="container">

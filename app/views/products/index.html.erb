@@ -1,56 +1,62 @@
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs tabs-style">
   <li role="presentation"><a href="/products/">Home</a></li>
   <li role="presentation"><a href="/auction/about">About</a></li>
   <li role="presentation"><a href="/products/my_products">My Listings</a></li>
+  <li role="presentation" style="float:right;">
+    <% if user_signed_in? %>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+    <% else %>
+      <%= link_to('Login', new_user_session_path)  %>
+    <% end %></li>
 </ul>
 <p id="notice"><%= notice %></p>
 
-<h2>Hello, <%= current_user.name %></h2>
-<h2>Here are all the auction items available</h2>
+<br>
+<p class="main-title">Use your talents to <strong>bless others</strong></p>
 
-<h3>Total raised: <%= number_to_currency @products.inject(0){|sum, product| sum + (product.bid.try(:amt) || 0) }  %></h3>
+<p class="main-title">Total raised: <%= number_to_currency @products.inject(0){|sum, product| sum + (product.bid.try(:amt) || 0) }  %></p>
 
-<a href="#" class="btn btn-info" data-toggle="modal" data-target="#myModal">
-  <h3>Instructions</h3>
-</a>
+<div class="banner">
+  <a class="instructions c-button" href="#" data-toggle="modal" data-target="#myModal">Instructions</a>
+  <%= link_to 'Auction My Talent', new_product_path, :class => "add-item c-button" %>
+</div>
 
-<p></p>
-<%= link_to 'Add New Auction Item', new_product_path, :class => "btn btn-primary" %>
-<p></p>
+<br>
 
+<p class="explore">Explore live items!</p>
 <%#= link_to 'Show my products', products_path(user_id: current_user.id) %>
 <% @products.each do |product| %>
 <div class="container">
-      <div class="row row-eq-height">
+      <div class="row no-padding">
         <div class="col-sm-4 col">
           <!-- <div class="col-xs-18 col-sm-6 col-md-3"> -->
           <div class="thumbnail">
             <!-- <img src="http://placehold.it/500x250/EEE"> -->
               <div class="caption">
-                <h4><%= product.title %></h4>
+                <h4><%= product.title %></h4>Bid
                 <p style="color:#757575"><%= product.user.name %></p>
                 <div class="preview-text">
                 <p><%= product.description %></p>
               </div>
                   <div class="col-sm-4 col">
-                    <p><strong><%= number_to_currency product.starting_bid %></strong></p>
+                    <p class="stats"><%= number_to_currency product.starting_bid %></p>
                     <p>Start bid</p>
                   </div>
                   <div class="col-sm-4 col">
-                    <p>
+                    <p class="stats">
                       <% if number_to_currency product.bid.try(:amt).nil? %>
                       None
                       <% else %>
-                      <strong><%= number_to_currency product.bid.try(:amt) %></strong></p>
+                      <%= number_to_currency product.bid.try(:amt) %></p>
                       <% end %>
                     <p>Highest bid</p>
                   </div>
                   <div class="col-sm-4 col">
-                    <p>
+                    <p class="stats">
                       <% if product.bid.try(:user).try(:name).nil? %>
                       None
                       <% else %>
-                      <strong><%= product.bid.try(:user).try(:name) %></strong></p>
+                      <%= product.bid.try(:user).try(:name) %></p>
                       <% end %>
                     <p>Highest bidder</p>
                   </div>
@@ -60,7 +66,7 @@
                       <%= link_to 'Edit', edit_product_path(product) %>
                       <%= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' } %>
                       <% else %>
-                      <%= link_to 'Bid', product, :class => "btn btn-primary btn-xs" %>
+                      <%= link_to 'Bid', product, :class => "btn btn-primary" %>
                       <% end %>
 
                   </div>
@@ -109,12 +115,6 @@
 
 <br>
 
-<% if user_signed_in? %>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-<% else %>
-  <%= link_to('Login', new_user_session_path)  %>
-<% end %>
-
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -126,7 +126,7 @@
         <h4 class="modal-title" id="myModalLabel">Instructions</h4>
       </div>
       <div class="modal-body">
-        <li>You have to bid more than the current amount</li>
+        <li>You have to bid an amount equal to or more than the current amount</li>
         <li>You may only bid on items listed by others, and not your own</li>
         <li>You can list as many items to put up for auction</li>
         <li>Any derogatory listings will be taken down immediately</li>
