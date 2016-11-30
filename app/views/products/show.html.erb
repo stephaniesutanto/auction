@@ -34,8 +34,8 @@
     <%= form_for [@product, @bid] do |f| %>
   <p>
     <strong>New bid: </strong>
-    <%= f.number_field :amt %>
-    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+    <%= f.number_field :amt %><p>
+    <%= button_tag(type: 'submit', class: "btn btn-bid") do %>
     Place Bid
     <% end %>
   </p>

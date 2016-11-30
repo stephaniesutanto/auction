@@ -140,6 +140,38 @@ div {
   margin: 9px;
 }
 
+.btn-bid {
+  display: inline-block;
+  border-radius: 7px;
+  font-size: 17px;
+  padding: 8px 40px;
+  background-color: #ff6f69;
+  border: 3px solid #ff6f69;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-bid:visited {
+    background-color: #ff6f69;
+    border: 3px solid #ff6f69;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-bid:hover {
+    background-color: #e5635e;
+    border: 3px solid #e5635e;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-bid:active {
+    background-color: #e5635e;
+    border: 3px solid #e5635e;
+    color: white;
+    cursor: pointer;
+}
+
 .thumbnail {
   height: 370px;
 }
@@ -149,7 +181,7 @@ div {
 
 .preview-text {
   overflow: hidden;
-  height: 149px;
+  height: 120px;
   margin-bottom: 21px;
 }
 .column-left {
@@ -166,6 +198,7 @@ div {
   float: right;
   width: 33%;
 }
+
 
 
 #error_explanation {

@@ -61,12 +61,12 @@
                     <p>Highest bidder</p>
                   </div>
 
-                  <div class="col-sm-6 col">
+                  <div style="text-align: center;">
                       <% if product.user.name == current_user.name %>
                       <%= link_to 'Edit', edit_product_path(product) %>
                       <%= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' } %>
                       <% else %>
-                      <%= link_to 'Bid', product, :class => "btn btn-primary" %>
+                      <%= link_to 'Bid', product, :class => "btn-bid btn-block" %>
                       <% end %>
 
                   </div>
