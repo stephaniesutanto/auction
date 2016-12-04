@@ -7,6 +7,23 @@ body {
   min-height: 100%;
 }
 
+input, textarea, button {outline: none; }
+.container-new{
+  text-align: center;
+  max-width: 502px;
+}
+
+textarea {
+  resize: none;
+  line-height: normal;
+}
+
+form{
+margin-left: 25%;
+margin-right:25%;
+width: 50%;
+}
+
 .login-intro {
   padding-left: 100px;
   padding-right: 100px;
@@ -229,4 +246,36 @@ div {
 .stats {
   font-size: 20px;
   font-weight: 500;
+}
+
+.form-field {
+  max-width: 502px;
+}
+.form-title {
+  font-size: 22px;
+  color: #80809E;
+  margin-bottom: 1.2rem;
+}
+.start-title-field {
+  font-size: 22px;
+  color: #333;
+}
+
+.text {
+  border: none;
+  border-bottom: 1px solid #3D3D66;
+  border-radius: 0px;
+  width: 100%;
+  background-color: transparent;
+  padding: 0 0 6px 0;
+  margin-bottom: 20px;
+}
+
+.text-edit {
+  border: none;
+  border-radius: 0px;
+  width: 100%;
+  background-color: transparent;
+  padding: 0 0 6px 0;
+  margin-bottom: 20px;
 }

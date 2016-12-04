@@ -1,47 +1,61 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
+<div style="width:502px; margin:0 auto;">
+  <p class="form-title">
+      Title:</p>
+      <p class="start-title-field text-edit"><%= @product.title %></p>
+    <p class="form-title">
+      Lister:
+    </p>
+    <p class="start-title-field text-edit">
+      <%= @product.user.name %>
+    </p>
+    <p class="form-title">
+      Description:
+    </p>
+    <p class="start-title-field text-edit">
+        <%= @product.description %>
+    </p>
 
-<p>
-  <strong>Lister:</strong>
-  <%= @product.user.name %>
-</p>
+    <p class="form-title">
+      Starting Bid:
+    </p>
+    <p class="start-title-field text-edit">
+      <%= @product.starting_bid %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+    <p class="form-title">
+      Highest Bid:
+    </p>
+    <p class="start-title-field text-edit">
+      <%= @product.bid.try(:amt) %>
+    </p>
 
-<p>
-  <strong>Starting Bid:</strong>
-  <%= @product.starting_bid %>
-</p>
+    <p class="form-title">
+      Bidder:
+    </p>
+    <p class="start-title-field text-edit">
+      <%= @product.bid.try(:user).try(:name) %>
+    </p>
 
-<p>
-  <strong>Highest Bid:</strong>
-  <%= @product.bid.try(:amt) %>
-</p>
-
-<p>
-  <strong>Bidder:</strong>
-  <%= @product.bid.try(:user).try(:name) %>
-</p>
-
-<% if @product.user.name != current_user.name %>
-    <%= form_for [@product, @bid] do |f| %>
-  <p>
-    <strong>New bid: </strong>
-    <%= f.number_field :amt %><p>
-    <%= button_tag(type: 'submit', class: "btn btn-bid") do %>
-    Place Bid
+    <% if @product.user.name != current_user.name %>
+        <%= form_for [@product, @bid] do |f| %>
+      <p class="form-title">
+        New bid:
+      </p>
+      <p class="start-title-field text-edit">
+        <%= f.number_field :amt %>
+      </p>
+      <p>
+        <%= button_tag(type: 'submit', class: "btn btn-bid") do %>
+        Place Bid
+        <% end %>
+      </p>
+      <% end %>
+    <% else %>
     <% end %>
-  </p>
-  <% end %>
-<% else %>
-<% end %>
+  </div>
+
 
 
 

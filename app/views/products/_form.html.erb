@@ -10,21 +10,29 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+<div class="container-new">
+  <div align="left" class="form-field">
+    <p class="form-title">
+        Give a Title:
+      </p>
+    <%= f.text_area :title, class: "start-title-field text", type: "text", :rows => 1 %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div align="left" class="form-field">
+    <p class="form-title">
+        Describe it:
+      </p>
+    <%= f.text_area :description, class: "start-title-field text", type: "text", :rows => 4 %>
   </div>
-  <div class="field">
-    <%= f.label :starting_bid %><br>
-    <%= f.number_field :starting_bid %>
+  <div align="left" class="form-field">
+    <p class="form-title">
+        Give a Start Bid:
+      </p>
+    <%= f.number_field :starting_bid, class: "start-title-field text"%>
   </div>
     <%= button_tag(type: 'submit', class: "btn btn-bid") do %>
     Submit
     <% end %>
+  </div>
+
 <p></p>
 <% end %>

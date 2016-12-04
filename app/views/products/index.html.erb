@@ -10,12 +10,15 @@
     <% end %></li>
 </ul>
 <p id="notice"><%= notice %></p>
+<head>
+  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+</head>
 
 <br>
 <p class="main-title">Use your talents to <strong>bless others</strong></p>
 
 <p class="main-title">Total raised: <%= number_to_currency @products.inject(0){|sum, product| sum + (product.bid.try(:amt) || 0) }  %></p>
-
+<p class="main-title"><em>Deadline: 25th December 2016 <i class="em em-christmas_tree"></i></em></p>
 <div class="banner">
   <a class="instructions c-button" href="#" data-toggle="modal" data-target="#myModal">Instructions</a>
   <%= link_to 'Auction My Talent', new_product_path, :class => "add-item c-button" %>
@@ -33,8 +36,8 @@
           <div class="thumbnail">
             <!-- <img src="http://placehold.it/500x250/EEE"> -->
               <div class="caption">
-                <h4><%= product.title %></h4>
-                <p style="color:#757575"><%= product.user.name %></p>
+                <h4><i class="em em-sparkles"></i> <%= product.title %></h4>
+                <p style="color:#757575">By <%= product.user.name %></p>
                 <div class="preview-text">
                 <p><%= product.description %></p>
               </div>
@@ -123,7 +126,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title" id="myModalLabel">Instructions</h4>
+        <h4 class="modal-title" id="myModalLabel"><i class="em em-star2"></i>Instructions</h4>
       </div>
       <div class="modal-body">
         <li>You have to bid an amount equal to or more than the current amount</li>
